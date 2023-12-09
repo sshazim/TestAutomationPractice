@@ -396,3 +396,10 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/Automation Exercise/src/Common/Test Results/UI/*.html
+/Automation Exercise/src/Common/Test Results/UI/*.png
+/Automation Exercise/src/Common/Test Results/API/*.html
+/Automation Exercise/src/Common/Test Results/API/index.html
+/Automation Exercise/src/Common/Test Results/UI/index.html
+/Automation Exercise/src/Common/Test Results/API/index.html
+/Automation Exercise/src/Common/Test Results/UI/index.html

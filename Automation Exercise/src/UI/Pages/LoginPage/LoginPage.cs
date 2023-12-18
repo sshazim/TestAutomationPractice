@@ -1,4 +1,8 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework.Internal.Commands;
+using OpenQA.Selenium;
+using RazorEngine.Compilation.ImpromptuInterface.Dynamic;
+using System;
+using System.Security.Cryptography;
 
 namespace TestAutomationPractice.Pages.LoginPage
 {
@@ -7,14 +11,21 @@ namespace TestAutomationPractice.Pages.LoginPage
         public LoginPage(IWebDriver driver) : base(driver)
         {
         }
+
         public override string PageURL => "https://www.automationexercise.com/login";
         public void FillSingupForm(string name, string email)
         {
             signupNameField.SendKeys(name);
             signupEmailField.SendKeys(email);
-            
+
+        }
+        public void ClearEmailInSignUpPage()
+        {
+            signupNameField.Clear();
+            signupEmailField.Clear();
         }
         public void ClickOnSignupButton() => signupButton.Click();
+
         public void FillLoginForm(string email, string password)
         {
             loginEmailField.SendKeys(email);

@@ -32,6 +32,7 @@ namespace TestAutomationPractice.Pages.SignupPage
         public IWebElement zipCodeField => driver.FindElement(By.XPath("//input[@data-qa='zipcode']"));
         public IWebElement mobileNumberField => driver.FindElement(By.XPath("//input[@id='mobile_number']"));
         public IWebElement createAccountButton => driver.FindElement(By.XPath("//button[@data-qa='create-account']"));
-       
+        public IWebElement signUpFormText => driver.FindElement(By.XPath("//div[@class='signup-form']"));
+
     }
 }

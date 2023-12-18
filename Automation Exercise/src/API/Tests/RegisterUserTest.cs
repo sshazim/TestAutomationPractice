@@ -83,7 +83,7 @@ namespace TestAutomationPractice.src.API.Tests
 
             // Assert
             Assert.NotNull(response);
-            Assert.AreEqual(200, response.StatusCode);
+            Assert.AreEqual(400, response.StatusCode);
             Assert.AreEqual(HttpStatusCode.BadRequest, response.Data.ResponseCode);
             Assert.AreEqual("Email already exists!", response.Data.Message);
         }

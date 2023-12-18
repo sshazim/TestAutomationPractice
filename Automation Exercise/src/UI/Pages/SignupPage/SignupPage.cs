@@ -1,4 +1,8 @@
-﻿using OpenQA.Selenium;
+﻿using Microsoft.VisualBasic;
+using OpenQA.Selenium;
+using System.Linq;
+using System.Text;
+using TestAutomationPractice.Utilities;
 
 namespace TestAutomationPractice.Pages.SignupPage
 {
@@ -91,6 +95,24 @@ namespace TestAutomationPractice.Pages.SignupPage
             stateField.Clear();
             zipCodeField.Clear();
             mobileNumberField.Clear();
+        }
+
+        public string SignUpWithEmail(string email)
+        {
+            //check "email already exists" error msg in the page
+            string errorMsgEmailExists=signUpFormText.Text;
+            Random randomGenerator= new Random();
+            string randomInt = Convert.ToString(randomGenerator.Next(1000));
+            if(errorMsgEmailExists.Contains(ErrorMessages.emailAddressAlreadyExist))
+            {
+                //Get email and append random data to the mail id
+                string splitEmailFirst=email.Split("@").First();
+                string splitEmailLast=email.Split(splitEmailFirst).Last();
+                email = splitEmailFirst + randomInt+ splitEmailLast;
+            }
+            return email;
+
+
         }
         public void ClickOnCreateAccount() => createAccountButton.Click();
        public bool ValidationMessageIsDisplayed(IWebElement nameOfField)

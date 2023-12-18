@@ -35,7 +35,7 @@ namespace TestAutomationPractice.src.API.Tests
             Assert.NotNull(response);
             Assert.AreEqual(200, response.StatusCode);
             Assert.AreEqual(HttpStatusCode.BadRequest, response.Data.ResponseCode);
-            Assert.AreEqual("Bad request, email or password parameter is missing in POST.", response.Data.Message);
+            Assert.AreEqual("Bad request, email or password parameter is missing in POST request.", response.Data.Message);
         }
         [Test, Order(2)]
         public void Post_LoginWithInvalidCredentials()

@@ -14,5 +14,6 @@ namespace TestAutomationPractice.Pages.LoginPage
         public IWebElement signupButton => driver.FindElement(By.XPath("//button[@data-qa='signup-button']"));
         public IWebElement incorrectDataMessage => WaitAndFindElements(By.XPath("//form[@action='/login']/p"));
         public IWebElement emailAddressAlreadyExistMsg => driver.FindElement(By.XPath("//form[@action='/signup']/p"));
+        
     }
 }

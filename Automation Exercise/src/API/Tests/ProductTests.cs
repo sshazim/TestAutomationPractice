@@ -26,7 +26,7 @@ namespace TestAutomationPractice.src.API.Tests
 
             // Assert
             Assert.NotNull(response);
-            Assert.AreEqual(400,response.StatusCode);
+            Assert.AreEqual(200,response.StatusCode);
             Assert.NotNull(response.Data);
             Assert.That(response.Data.Products.Count,Is.GreaterThan(0));
         }

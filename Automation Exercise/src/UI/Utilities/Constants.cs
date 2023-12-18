@@ -1,4 +1,8 @@
-﻿namespace TestAutomationPractice.Utilities
+﻿using System.Security.Cryptography;
+using TestAutomationPractice.Pages.LoginPage;
+using TestAutomationPractice.Test_Scripts;
+
+namespace TestAutomationPractice.Utilities
 {
     public static class Constants
     {

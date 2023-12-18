@@ -1,4 +1,5 @@
-﻿using TestAutomationPractice.src.UI.TestData;
+﻿using OpenQA.Selenium.DevTools.V117.Debugger;
+using TestAutomationPractice.src.UI.TestData;
 using TestAutomationPractice.Utilities;
 
 namespace TestAutomationPractice.Test_Scripts
@@ -22,14 +23,28 @@ namespace TestAutomationPractice.Test_Scripts
         }
 
         [Test, Order(2), Category("Test Case 2"), Category("Excercise Test")]
-        public void VerifyUserLoginWithValidData()
+        [TestCaseSource(typeof(LoginTestCases), nameof(LoginTestCases.LoginWithValidEmailAndPassword))]
+        //[TestCase(Constants.email,Constants.password)]
+        //[TestCase("khadar@bgv.bg",Constants.password)]
+        public void VerifyUserLoginWithValidData(string email, string password)
         {
             test = suiteTest.CreateNode("Test User Login With Valid Credentials");
-            loginPage.FillLoginForm(Constants.email, Constants.password);
+            loginPage.FillLoginForm(email, password);
             loginPage.ClickOnLoginButton();
             homePage.AssertCorrectPageIsLoaded();
             homePage.AssertUserIsLogin();
-            homePage.Logout();
+            //homePage.Logout();
+            switch (email)
+            {
+                case Constants.email:
+                    homePage.AssertCorrectPageIsLoaded();
+                    homePage.Logout();
+                    break;
+                case "khadar@bgv.bg":
+                    homePage.AssertCorrectPageIsLoaded();
+                    break;
+
+            };
         }
 
         [Test, Order(2), Category("Test Case 3"), Category("Excercise Test")]

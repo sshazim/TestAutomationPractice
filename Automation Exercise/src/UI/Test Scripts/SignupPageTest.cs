@@ -21,6 +21,12 @@ namespace TestAutomationPractice.Test_Scripts
             loginPage.AssertCorrectSignupFormTitleIsDisplayed();
             loginPage.FillSingupForm(Constants.name, Constants.email);
             loginPage.ClickOnSignupButton();
+            signupPage.SignUpWithEmail(Constants.email);
+            loginPage.ClearEmailInSignUpPage();
+            loginPage.FillSingupForm(Constants.name, signupPage.SignUpWithEmail(Constants.email));
+            loginPage.ClickOnSignupButton();
+
+
             signupPage.AssertCorrectPageIsLoaded();
         }
         private AccountInfo accountInfo;

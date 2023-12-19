@@ -12,14 +12,17 @@ namespace TestAutomationPractice.Pages.CartPage
         private int GetTotalPriceOfProduct(string productName)
         {
 
+
             foreach (var product in productList)
-            {
-                string nameOfProduct = product.FindElement(By.XPath("//*[@class='cart_description']//a")).Text;
+            {             
+                  string  nameOfProduct = product.FindElement(By.XPath(".//*[@class='cart_description']//a")).Text;
+
                 if (productName == nameOfProduct)
                 {
-                    return int.Parse(product.FindElement(By.XPath("//*[@class='cart_total']/p")).Text.Split(" ")[1]);
+                    return int.Parse(product.FindElement(By.XPath(".//*[@class='cart_total']/p")).Text.Split(" ")[1]);
                 }
             }
+    
             return -2;
         }
         private int GetProductQuantity(string productName)
@@ -40,7 +43,7 @@ namespace TestAutomationPractice.Pages.CartPage
             List<string> names = new List<string>();
             foreach (var product in productList)
             {
-                names.Add(product.FindElement(By.XPath("//*[@class='cart_description']//a")).Text);
+                names.Add(product.FindElement(By.XPath(".//*[@class='cart_description']//a")).Text);
             }
             return names;
         }
@@ -48,11 +51,11 @@ namespace TestAutomationPractice.Pages.CartPage
         {
             foreach (var product in productList)
             {
-                string nameOfProduct = product.FindElement(By.XPath("//*[@class='cart_description']//a")).Text;
+                string nameOfProduct = product.FindElement(By.XPath(".//*[@class='cart_description']//a")).Text;
                 if (productName == nameOfProduct)
                 {
-                    int productPrice = int.Parse(product.FindElement(By.XPath("//*[@class='cart_price']/p")).Text.Split(" ")[1]);
-                    int productQuantity = int.Parse(product.FindElement(By.XPath("//*[@class='cart_quantity']/button")).Text);
+                    int productPrice = int.Parse(product.FindElement(By.XPath(".//*[@class='cart_price']/p")).Text.Split(" ")[1]);
+                    int productQuantity = int.Parse(product.FindElement(By.XPath(".//*[@class='cart_quantity']/button")).Text);
                     return productPrice * productQuantity;
                 }
             }
@@ -95,6 +98,7 @@ namespace TestAutomationPractice.Pages.CartPage
         public void ClickOnHomeButton() => homeButton.Click();
         public void ContinueToProductPage() => continueToProductPage.Click();
         public void ContinueOnCart() => continueOnCartButton.Click();
+        public void ClickOnProccedToCheckOutButton() => proceedToCheckOutButton.Click();
         public bool CheckProductIsAddedToCart(string productName)
         {
             foreach (var product in productList)

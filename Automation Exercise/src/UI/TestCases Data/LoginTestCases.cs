@@ -17,5 +17,11 @@ namespace TestAutomationPractice.src.UI.TestData
             yield return new TestCaseData("incorrectEmail", Constants.password);
             yield return new TestCaseData("incorrectEmail@", Constants.password);
         }
+        public static IEnumerable LoginWithValidEmailOrPassowrd()
+        {
+            yield return new TestCaseData(Constants.email, Constants.password);
+            yield return new TestCaseData(Constants.email, Constants.password);
+            yield return new TestCaseData(Constants.email, Constants.password);
+        }
     }
 }

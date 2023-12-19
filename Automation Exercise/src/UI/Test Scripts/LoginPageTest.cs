@@ -22,7 +22,8 @@ namespace TestAutomationPractice.Test_Scripts
         }
 
         [Test, Order(2), Category("Test Case 2"), Category("Excercise Test")]
-        public void VerifyUserLoginWithValidData()
+        [TestCaseSource(typeof(LoginTestCases), nameof(LoginTestCases.LoginWithValidEmailOrPassowrd))]
+        public void VerifyUserLoginWithValidData(string email, string password)
         {
             test = suiteTest.CreateNode("Test User Login With Valid Credentials");
             loginPage.FillLoginForm(Constants.email, Constants.password);

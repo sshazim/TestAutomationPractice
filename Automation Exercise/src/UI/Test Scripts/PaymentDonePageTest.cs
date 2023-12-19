@@ -20,7 +20,19 @@ namespace TestAutomationPractice.Test_Scripts
         public void VerifyCompleteOrderWihtoutAddedProduct()
         {
             test = suiteTest.CreateNode("Test Complete order workflow with added product.");
-            paymentPage.Open();
+            productPage.Open();
+            productPage.AssertCorrectPageIsLoaded();
+            ScrollDown(driver, 350);
+            productPage.AddProductToCart("Men Tshirt");
+            productPage.ContinueToShopping();
+            productPage.AddProductToCart("Blue Top");
+            productPage.ContinueToShopping();
+            productPage.AddProductToCart("Sleeveless Dress");
+            productPage.AssertProductAddedSuccessfulTextIsDisplayed();
+            productPage.OpenCart();
+            cartPage.AssertCorrectPageIsLoaded();
+            cartPage.ClickOnProccedToCheckOutButton();
+            checkoutPage.PlaceOrder();
             paymentPage.AssertCorrectPageIsLoaded();
             paymentPage.AssertCorrectPaymentTitleIsDisplayed();
             paymentPage.AssertCorrectPaymentFormIsDisplayed();

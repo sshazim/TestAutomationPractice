@@ -26,7 +26,7 @@ namespace TestAutomationPractice.Test_Scripts
         public void VerifyUserLoginWithValidData(string email, string password)
         {
             test = suiteTest.CreateNode("Test User Login With Valid Credentials");
-            loginPage.FillLoginForm(Constants.email, Constants.password);
+            loginPage.FillLoginForm(email,password);
             loginPage.ClickOnLoginButton();
             homePage.AssertCorrectPageIsLoaded();
             homePage.AssertUserIsLogin();

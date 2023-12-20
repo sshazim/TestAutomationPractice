@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using System.Xml.Linq;
 
 namespace TestAutomationPractice.Pages.SignupPage
 {
@@ -15,6 +16,11 @@ namespace TestAutomationPractice.Pages.SignupPage
         public void AssertAddressInfoTitleIsDisplayedCorectly()
         {
             Assert.AreEqual("ADDRESS INFORMATION", addressInfoTitle.Text);
+        }
+        public void AssertDuplicateEmailMessage()
+        {
+            Assert.AreEqual("Email Address already exist!", emailAlreadyExistMessage.Text);
+            Assert.AreEqual("rgba(255, 0, 0, 1)", emailAlreadyExistMessage.GetCssValue("color"));
         }
         public void AssertValidationMessageIsDisplayed(IWebElement nameOfField)
         {

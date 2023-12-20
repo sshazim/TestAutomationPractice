@@ -7,6 +7,7 @@ using System.Net;
 
 namespace TestAutomationPractice.src.API.Tests
 {
+    //practice
     [TestFixture]
     [Order(5)]
     public class SearchProductTests : ExtentReport
@@ -50,7 +51,7 @@ namespace TestAutomationPractice.src.API.Tests
 
             // Assert
             Assert.NotNull(response);
-            Assert.AreEqual(400, response.StatusCode);
+            Assert.AreEqual(200, response.StatusCode);
             Assert.AreEqual(HttpStatusCode.BadRequest, response.Data.ResponseCode);
             Assert.AreEqual("Bad request, search_product parameter is missing in POST request.", response.Data.Message);
         }

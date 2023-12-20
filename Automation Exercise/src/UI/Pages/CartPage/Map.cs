@@ -14,5 +14,6 @@ namespace TestAutomationPractice.Pages.CartPage
         public IWebElement loginMessage => driver.FindElement(By.XPath("//*[@class='modal-body']/p[1]"));
         public IWebElement registerLoginLink => driver.FindElement(By.XPath("//*[@class='modal-body']/p[2]"));
         public IWebElement continueOnCartButton => driver.FindElement(By.XPath("//button[@data-dismiss='modal']"));
+        public IWebElement proceedToCheckOutButton => driver.FindElement(By.XPath("//a[@class='btn btn-default check_out']"));
     }
 }
